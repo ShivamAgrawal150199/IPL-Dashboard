@@ -5,27 +5,7 @@ import { BrowserRouter as Router,Route, Routes,useParams } from 'react-router-do
 
 export const TeamPage=()=> {
 
-    const[team, setTeam]=useState({matches:[]});
-    const {teamName}=useParams();
-    useEffect(
-        ()=>{
-            const fetchMatches= async()=>{
-                const response=await fetch(`http://localhost:8080/team/${teamName}`);
-                const data=await response.json();
-                setTeam(data);
-                console.log(data);
-            };
-            fetchMatches();
-        },[teamName]
-        
-        );
 
-
-
-        if(!team || !team.teamName)
-        {
-            return <h2>Not Found2</h2>
-        }
   return (
     <div className="TeamPage">
       <h1>{team.teamName}</h1>
